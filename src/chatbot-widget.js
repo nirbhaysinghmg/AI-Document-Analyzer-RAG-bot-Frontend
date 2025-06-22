@@ -8,7 +8,7 @@ const ChatBotWidget = {
     // Default configuration
     const config = {
       container: "#healthcare-ai-container",
-      baseUrl: "https://chatbot-theme-identifier-kzpk.onrender.com/",
+      baseUrl: "https://ai-document-analyzer-rag-bot-1.onrender.com",
       companyName: "Apollo Tyres",
       companyLogo: "/logo.png",
       primaryColor: "#0066cc",

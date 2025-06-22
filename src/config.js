@@ -1,8 +1,8 @@
 // Your existing config file
 const config = {
   // Use environment variables with fallback to localhost for development
-  apiUrl: "https://chatbot-theme-identifier-kzpk.onrender.com/",
-  chatUrl: "wss://chatbot-theme-identifier-kzpk.onrender.com/ws",
+  apiUrl: "https://ai-document-analyzer-rag-bot.onrender.com",
+  chatUrl: "wss://ai-document-analyzer-rag-bot.onrender.com/ws",
   companyName: "Your Company",
   companyLogo: "/logo.png",
   primaryColor: "#0066cc",

@@ -360,7 +360,7 @@ const DocumentUploadModal = ({ isOpen, onClose, onUpload }) => {
       console.log("Uploading with session ID:", sessionId);
 
       const response = await fetch(
-        `https://chatbot-theme-identifier-kzpk.onrender.com/upload/document?session_id=${
+        `https://ai-document-analyzer-rag-bot.onrender.com/upload/document?session_id=${
           sessionId || ""
         }`,
         {
@@ -489,7 +489,7 @@ const ChatWidget = ({ config: userConfig }) => {
     const clearSessions = async () => {
       try {
         await fetch(
-          "https://chatbot-theme-identifier-kzpk.onrender.com/sessions/clear",
+          "https://ai-document-analyzer-rag-bot.onrender.com/sessions/clear",
           {
             method: "DELETE",
           }
@@ -559,7 +559,7 @@ const ChatWidget = ({ config: userConfig }) => {
       console.log("Fetching documents with session ID:", sessionId);
 
       const response = await fetch(
-        `https://chatbot-theme-identifier-kzpk.onrender.com/documents?session_id=${sessionId}`
+        `https://ai-document-analyzer-rag-bot.onrender.com/documents?session_id=${sessionId}`
       );
       if (!response.ok) {
         throw new Error("Failed to fetch documents");
@@ -636,7 +636,7 @@ const ChatWidget = ({ config: userConfig }) => {
 
       // Send message to backend
       const response = await fetch(
-        "https://chatbot-theme-identifier-kzpk.onrender.com/query",
+        "https://ai-document-analyzer-rag-bot.onrender.com/query",
         {
           method: "POST",
           headers: {

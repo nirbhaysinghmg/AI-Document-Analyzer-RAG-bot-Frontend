@@ -19,7 +19,9 @@ const DocumentViewer = ({ onDocumentSelect }) => {
       console.log("Fetching documents with session ID:", sessionId);
 
       const response = await fetch(
-        `https://chatbot-theme-identifier-kzpk.onrender.com/documents?session_id=${sessionId || ""}`
+        `https://ai-document-analyzer-rag-bot.onrender.com/documents?session_id=${
+          sessionId || ""
+        }`
       );
       if (!response.ok) {
         throw new Error("Failed to fetch documents");
