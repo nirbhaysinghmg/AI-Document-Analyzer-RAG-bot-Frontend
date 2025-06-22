@@ -303,30 +303,6 @@ const ThemeAnalysis = ({ themes }) => {
   );
 };
 
-const DocumentAnswers = ({ answers }) => {
-  return (
-    <div className="document-answers">
-      <h3>Document Answers</h3>
-      <table className="answers-table">
-        <thead>
-          <tr>
-            <th>Document ID</th>
-            <th>Answer</th>
-          </tr>
-        </thead>
-        <tbody>
-          {answers.map((answer, index) => (
-            <tr key={index}>
-              <td>{answer.doc_id}</td>
-              <td>{answer.answer}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  );
-};
-
 // Add DocumentUploadModal component
 const DocumentUploadModal = ({ isOpen, onClose, onUpload }) => {
   const [files, setFiles] = useState([]);
@@ -539,7 +515,6 @@ const ChatWidget = ({ config: userConfig }) => {
   // Add new state for documents and analysis
   const [documents, setDocuments] = useState([]);
   const [selectedDocument, setSelectedDocument] = useState(null);
-  const [documentAnswers, setDocumentAnswers] = useState([]);
 
   // Add new state for document upload
   const [showUploadModal, setShowUploadModal] = useState(false);
@@ -661,16 +636,12 @@ const ChatWidget = ({ config: userConfig }) => {
         localStorage.setItem("healthcare_session_id", data.session_id);
       }
 
-      // Update document answers
-      setDocumentAnswers(data.individual_answers);
-
       // Add assistant response to chat
       setChatHistory((prev) => [
         ...prev,
         {
           role: "assistant",
           text: data.answer,
-          documentAnswers: data.individual_answers,
         },
       ]);
     } catch (error) {
@@ -709,11 +680,6 @@ const ChatWidget = ({ config: userConfig }) => {
       <div className="chat-wrapper">
         {/* Header */}
         <div className="chat-header">
-          <img
-            src={cfg.companyLogo}
-            alt={`${cfg.companyName} logo`}
-            className="chat-logo"
-          />
           <h2 className="chat-title">AI Document Analyzer RAG bot</h2>
           <div className="header-buttons">
             {/* Add View Documents button */}
@@ -826,11 +792,6 @@ const ChatWidget = ({ config: userConfig }) => {
                   {msg.text}
                 </ReactMarkdown>
               </div>
-
-              {/* Add document answers and theme analysis after assistant messages */}
-              {msg.role === "assistant" && msg.documentAnswers && (
-                <DocumentAnswers answers={msg.documentAnswers} />
-              )}
             </div>
           ))}
 
